@@ -1,0 +1,49 @@
+`timescale 1ns/1ns
+module MIPS32_Pipeline_test;
+reg clk1,clk2;
+integer k;
+
+MIPS32_Pipeline myproc (clk1,clk2);
+initial
+	begin
+		clk1=0; 
+		clk2=0;
+		repeat(20)
+			begin	
+				#5 clk1=1; #5 clk1=0;
+				#5 clk2=1;    clk2=0;
+			end
+	end
+
+initial
+	begin
+		for (k=0;k<32;k++)
+			MIPS32_Pipeline.regbank[k]=k;
+			
+		MIPS32_Pipeline.mem[0]=32'h2801000a;   //ADDI R1,R0,10
+		MIPS32_Pipeline.mem[1]=32'h28020014;   //ADDI R2,R0,20
+		MIPS32_Pipeline.mem[2]=32'h2803001a;   //ADDI R3,R0,25
+		MIPS32_Pipeline.mem[3]=32'h0ce77800;   //OR   R7,R7,R7  DUMMY
+		MIPS32_Pipeline.mem[4]=32'h0ce77800;   //OR   R7,R7,R7  DUMMY
+		MIPS32_Pipeline.mem[5]=32'h00222000;   //ADD  R4,R1,R2
+		MIPS32_Pipeline.mem[6]=32'h0ce77800;   //OR   R7,R7,R7  DUMMY
+		MIPS32_Pipeline.mem[7]=32'h00832800;   //ADD  R5,R4,R3
+		MIPS32_Pipeline.mem[8]=32'hfc000000;   //HLT
+		
+		MIPS32_Pipeline.HALTED      =0;
+		MIPS32_Pipeline.PC          =0;
+		MIPS32_Pipeline.TAKEN_BRANCH=0;
+		
+		#280
+		for(i=0;i<6;i=i+1)
+			$display("R%d - %2d",i,MIPS32_Pipeline.regbank[i]);
+		end
+		
+	initial
+		#300 $finish;		
+
+
+endmodule 
+		
+		
+		
