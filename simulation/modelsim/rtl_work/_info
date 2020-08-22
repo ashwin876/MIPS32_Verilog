@@ -1,0 +1,56 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/simulation/modelsim
+vMIPS32_Pipeline
+Z1 !s110 1598079684
+!i10b 1
+!s100 9n:G[^oQKVgIP:hjgH9`j0
+INO_fHM4a9fZFmdCM]=?7M2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1598047009
+8C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v
+FC:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v
+L0 3
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1598079684.000000
+!s107 C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32|C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32
+Z7 tCvgOpt 0
+n@m@i@p@s32_@pipeline
+vMIPS32_Pipeline_test
+R1
+!i10b 1
+!s100 0@PCgMFV=2BbQA;>O7GEW1
+Ido^[FgKUiX@R8Gz[5E[EJ0
+R2
+R0
+w1598046537
+8C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline_test.v
+FC:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline_test.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline_test.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32|C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline_test.v|
+!i113 1
+R5
+R6
+R7
+n@m@i@p@s32_@pipeline_test
