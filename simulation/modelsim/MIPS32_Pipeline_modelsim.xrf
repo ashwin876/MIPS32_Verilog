@@ -1,0 +1,11 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v
+source_file = 1, C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline_test.v
+source_file = 1, C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/db/MIPS32_Pipeline.cbx.xml
+design_name = MIPS32_Pipeline
+instance = comp, \clk2~input , clk2~input, MIPS32_Pipeline, 1
+instance = comp, \clk1~input , clk1~input, MIPS32_Pipeline, 1
+design_name = hard_block
+instance = comp, \~ALTERA_ASDO_DATA1~~ibuf , ~ALTERA_ASDO_DATA1~~ibuf, hard_block, 1
+instance = comp, \~ALTERA_FLASH_nCE_nCSO~~ibuf , ~ALTERA_FLASH_nCE_nCSO~~ibuf, hard_block, 1
+instance = comp, \~ALTERA_DATA0~~ibuf , ~ALTERA_DATA0~~ibuf, hard_block, 1
