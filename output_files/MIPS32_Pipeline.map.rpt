@@ -1,0 +1,717 @@
+Analysis & Synthesis report for MIPS32_Pipeline
+Sat Aug 22 03:27:06 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |MIPS32_Pipeline|MEM_WB_type
+  9. State Machine - |MIPS32_Pipeline|EX_MEM_type
+ 10. State Machine - |MIPS32_Pipeline|ID_EX_type
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |MIPS32_Pipeline
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Aug 22 03:27:06 2020       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; MIPS32_Pipeline                             ;
+; Top-level Entity Name              ; MIPS32_Pipeline                             ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 2                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                            ; MIPS32_Pipeline    ; MIPS32_Pipeline    ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------+---------+
+; MIPS32_Pipeline.v                ; yes             ; User Verilog HDL File  ; C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 2     ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk2  ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 2     ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                          ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-----------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name     ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-----------------+--------------+
+; |MIPS32_Pipeline           ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 2    ; 0            ; |MIPS32_Pipeline    ; MIPS32_Pipeline ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |MIPS32_Pipeline|MEM_WB_type                                                                                                ;
++--------------------+------------------+--------------------+-------------------+------------------+--------------------+--------------------+
+; Name               ; MEM_WB_type.HALT ; MEM_WB_type.BRANCH ; MEM_WB_type.STORE ; MEM_WB_type.LOAD ; MEM_WB_type.RM_ALU ; MEM_WB_type.RR_ALU ;
++--------------------+------------------+--------------------+-------------------+------------------+--------------------+--------------------+
+; MEM_WB_type.RR_ALU ; 0                ; 0                  ; 0                 ; 0                ; 0                  ; 0                  ;
+; MEM_WB_type.RM_ALU ; 0                ; 0                  ; 0                 ; 0                ; 1                  ; 1                  ;
+; MEM_WB_type.LOAD   ; 0                ; 0                  ; 0                 ; 1                ; 0                  ; 1                  ;
+; MEM_WB_type.STORE  ; 0                ; 0                  ; 1                 ; 0                ; 0                  ; 1                  ;
+; MEM_WB_type.BRANCH ; 0                ; 1                  ; 0                 ; 0                ; 0                  ; 1                  ;
+; MEM_WB_type.HALT   ; 1                ; 0                  ; 0                 ; 0                ; 0                  ; 1                  ;
++--------------------+------------------+--------------------+-------------------+------------------+--------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |MIPS32_Pipeline|EX_MEM_type                                                                                                ;
++--------------------+------------------+--------------------+-------------------+------------------+--------------------+--------------------+
+; Name               ; EX_MEM_type.HALT ; EX_MEM_type.BRANCH ; EX_MEM_type.STORE ; EX_MEM_type.LOAD ; EX_MEM_type.RM_ALU ; EX_MEM_type.RR_ALU ;
++--------------------+------------------+--------------------+-------------------+------------------+--------------------+--------------------+
+; EX_MEM_type.RR_ALU ; 0                ; 0                  ; 0                 ; 0                ; 0                  ; 0                  ;
+; EX_MEM_type.RM_ALU ; 0                ; 0                  ; 0                 ; 0                ; 1                  ; 1                  ;
+; EX_MEM_type.LOAD   ; 0                ; 0                  ; 0                 ; 1                ; 0                  ; 1                  ;
+; EX_MEM_type.STORE  ; 0                ; 0                  ; 1                 ; 0                ; 0                  ; 1                  ;
+; EX_MEM_type.BRANCH ; 0                ; 1                  ; 0                 ; 0                ; 0                  ; 1                  ;
+; EX_MEM_type.HALT   ; 1                ; 0                  ; 0                 ; 0                ; 0                  ; 1                  ;
++--------------------+------------------+--------------------+-------------------+------------------+--------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |MIPS32_Pipeline|ID_EX_type                                                                                          ;
++-------------------+-----------------+-------------------+------------------+-----------------+-------------------+-------------------+
+; Name              ; ID_EX_type.HALT ; ID_EX_type.BRANCH ; ID_EX_type.STORE ; ID_EX_type.LOAD ; ID_EX_type.RM_ALU ; ID_EX_type.RR_ALU ;
++-------------------+-----------------+-------------------+------------------+-----------------+-------------------+-------------------+
+; ID_EX_type.RR_ALU ; 0               ; 0                 ; 0                ; 0               ; 0                 ; 0                 ;
+; ID_EX_type.RM_ALU ; 0               ; 0                 ; 0                ; 0               ; 1                 ; 1                 ;
+; ID_EX_type.LOAD   ; 0               ; 0                 ; 0                ; 1               ; 0                 ; 1                 ;
+; ID_EX_type.STORE  ; 0               ; 0                 ; 1                ; 0               ; 0                 ; 1                 ;
+; ID_EX_type.BRANCH ; 0               ; 1                 ; 0                ; 0               ; 0                 ; 1                 ;
+; ID_EX_type.HALT   ; 1               ; 0                 ; 0                ; 0               ; 0                 ; 1                 ;
++-------------------+-----------------+-------------------+------------------+-----------------+-------------------+-------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++-----------------------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal                          ;
++-----------------------------------------+---------------------------------------------+
+; TAKEN_BRANCH0                           ; Stuck at VCC due to stuck port data_in      ;
+; HALTED                                  ; Stuck at VCC due to stuck port data_in      ;
+; MEM_WB_IR[11]                           ; Stuck at GND due to stuck port clock_enable ;
+; EX_MEM_IR[11]                           ; Lost fanout                                 ;
+; ID_EX_IR[11]                            ; Lost fanout                                 ;
+; MEM_WB_IR[12]                           ; Stuck at GND due to stuck port clock_enable ;
+; EX_MEM_IR[12]                           ; Lost fanout                                 ;
+; ID_EX_IR[12]                            ; Lost fanout                                 ;
+; MEM_WB_IR[13]                           ; Stuck at GND due to stuck port clock_enable ;
+; EX_MEM_IR[13]                           ; Lost fanout                                 ;
+; ID_EX_IR[13]                            ; Lost fanout                                 ;
+; MEM_WB_IR[14]                           ; Stuck at GND due to stuck port clock_enable ;
+; EX_MEM_IR[14]                           ; Lost fanout                                 ;
+; ID_EX_IR[14]                            ; Lost fanout                                 ;
+; MEM_WB_IR[15]                           ; Stuck at GND due to stuck port clock_enable ;
+; EX_MEM_IR[15]                           ; Lost fanout                                 ;
+; ID_EX_IR[15]                            ; Lost fanout                                 ;
+; MEM_WB_IR[16]                           ; Stuck at GND due to stuck port clock_enable ;
+; EX_MEM_IR[16]                           ; Lost fanout                                 ;
+; ID_EX_IR[16]                            ; Lost fanout                                 ;
+; MEM_WB_IR[17]                           ; Stuck at GND due to stuck port clock_enable ;
+; EX_MEM_IR[17]                           ; Lost fanout                                 ;
+; ID_EX_IR[17]                            ; Lost fanout                                 ;
+; MEM_WB_IR[18]                           ; Stuck at GND due to stuck port clock_enable ;
+; EX_MEM_IR[18]                           ; Lost fanout                                 ;
+; ID_EX_IR[18]                            ; Lost fanout                                 ;
+; MEM_WB_IR[19]                           ; Stuck at GND due to stuck port clock_enable ;
+; EX_MEM_IR[19]                           ; Lost fanout                                 ;
+; ID_EX_IR[19]                            ; Lost fanout                                 ;
+; MEM_WB_IR[20]                           ; Stuck at GND due to stuck port clock_enable ;
+; EX_MEM_IR[20]                           ; Lost fanout                                 ;
+; ID_EX_IR[20]                            ; Lost fanout                                 ;
+; EX_MEM_ALUOUT[0..31]                    ; Stuck at GND due to stuck port clock_enable ;
+; ID_EX_NPC[31]                           ; Lost fanout                                 ;
+; IF_ID_NPC[31]                           ; Lost fanout                                 ;
+; ID_EX_NPC[30]                           ; Lost fanout                                 ;
+; IF_ID_NPC[30]                           ; Lost fanout                                 ;
+; ID_EX_NPC[29]                           ; Lost fanout                                 ;
+; IF_ID_NPC[29]                           ; Lost fanout                                 ;
+; ID_EX_NPC[28]                           ; Lost fanout                                 ;
+; IF_ID_NPC[28]                           ; Lost fanout                                 ;
+; ID_EX_NPC[27]                           ; Lost fanout                                 ;
+; IF_ID_NPC[27]                           ; Lost fanout                                 ;
+; ID_EX_NPC[26]                           ; Lost fanout                                 ;
+; IF_ID_NPC[26]                           ; Lost fanout                                 ;
+; ID_EX_NPC[25]                           ; Lost fanout                                 ;
+; IF_ID_NPC[25]                           ; Lost fanout                                 ;
+; ID_EX_NPC[24]                           ; Lost fanout                                 ;
+; IF_ID_NPC[24]                           ; Lost fanout                                 ;
+; ID_EX_NPC[23]                           ; Lost fanout                                 ;
+; IF_ID_NPC[23]                           ; Lost fanout                                 ;
+; ID_EX_NPC[22]                           ; Lost fanout                                 ;
+; IF_ID_NPC[22]                           ; Lost fanout                                 ;
+; ID_EX_NPC[21]                           ; Lost fanout                                 ;
+; IF_ID_NPC[21]                           ; Lost fanout                                 ;
+; ID_EX_NPC[20]                           ; Lost fanout                                 ;
+; IF_ID_NPC[20]                           ; Lost fanout                                 ;
+; ID_EX_NPC[19]                           ; Lost fanout                                 ;
+; IF_ID_NPC[19]                           ; Lost fanout                                 ;
+; ID_EX_NPC[18]                           ; Lost fanout                                 ;
+; IF_ID_NPC[18]                           ; Lost fanout                                 ;
+; ID_EX_NPC[17]                           ; Lost fanout                                 ;
+; IF_ID_NPC[17]                           ; Lost fanout                                 ;
+; ID_EX_NPC[16]                           ; Lost fanout                                 ;
+; IF_ID_NPC[16]                           ; Lost fanout                                 ;
+; ID_EX_NPC[15]                           ; Lost fanout                                 ;
+; IF_ID_NPC[15]                           ; Lost fanout                                 ;
+; ID_EX_NPC[14]                           ; Lost fanout                                 ;
+; IF_ID_NPC[14]                           ; Lost fanout                                 ;
+; ID_EX_NPC[13]                           ; Lost fanout                                 ;
+; IF_ID_NPC[13]                           ; Lost fanout                                 ;
+; ID_EX_NPC[12]                           ; Lost fanout                                 ;
+; IF_ID_NPC[12]                           ; Lost fanout                                 ;
+; ID_EX_NPC[11]                           ; Lost fanout                                 ;
+; IF_ID_NPC[11]                           ; Lost fanout                                 ;
+; ID_EX_NPC[10]                           ; Lost fanout                                 ;
+; IF_ID_NPC[10]                           ; Lost fanout                                 ;
+; ID_EX_NPC[9]                            ; Lost fanout                                 ;
+; IF_ID_NPC[9]                            ; Lost fanout                                 ;
+; ID_EX_NPC[8]                            ; Lost fanout                                 ;
+; IF_ID_NPC[8]                            ; Lost fanout                                 ;
+; ID_EX_NPC[7]                            ; Lost fanout                                 ;
+; IF_ID_NPC[7]                            ; Lost fanout                                 ;
+; ID_EX_NPC[6]                            ; Lost fanout                                 ;
+; IF_ID_NPC[6]                            ; Lost fanout                                 ;
+; ID_EX_NPC[5]                            ; Lost fanout                                 ;
+; IF_ID_NPC[5]                            ; Lost fanout                                 ;
+; ID_EX_NPC[4]                            ; Lost fanout                                 ;
+; IF_ID_NPC[4]                            ; Lost fanout                                 ;
+; ID_EX_NPC[3]                            ; Lost fanout                                 ;
+; IF_ID_NPC[3]                            ; Lost fanout                                 ;
+; ID_EX_NPC[2]                            ; Lost fanout                                 ;
+; IF_ID_NPC[2]                            ; Lost fanout                                 ;
+; ID_EX_NPC[1]                            ; Lost fanout                                 ;
+; IF_ID_NPC[1]                            ; Lost fanout                                 ;
+; ID_EX_NPC[0]                            ; Lost fanout                                 ;
+; IF_ID_NPC[0]                            ; Lost fanout                                 ;
+; ID_EX_IMM[15..31]                       ; Lost fanout                                 ;
+; IF_ID_IR[15]                            ; Lost fanout                                 ;
+; ID_EX_IMM[14]                           ; Lost fanout                                 ;
+; IF_ID_IR[14]                            ; Lost fanout                                 ;
+; ID_EX_IMM[13]                           ; Lost fanout                                 ;
+; IF_ID_IR[13]                            ; Lost fanout                                 ;
+; ID_EX_IMM[12]                           ; Lost fanout                                 ;
+; IF_ID_IR[12]                            ; Lost fanout                                 ;
+; ID_EX_IMM[11]                           ; Lost fanout                                 ;
+; IF_ID_IR[11]                            ; Lost fanout                                 ;
+; ID_EX_IMM[10]                           ; Lost fanout                                 ;
+; IF_ID_IR[10]                            ; Lost fanout                                 ;
+; ID_EX_IMM[9]                            ; Lost fanout                                 ;
+; IF_ID_IR[9]                             ; Lost fanout                                 ;
+; ID_EX_IMM[8]                            ; Lost fanout                                 ;
+; IF_ID_IR[8]                             ; Lost fanout                                 ;
+; ID_EX_IMM[7]                            ; Lost fanout                                 ;
+; IF_ID_IR[7]                             ; Lost fanout                                 ;
+; ID_EX_IMM[6]                            ; Lost fanout                                 ;
+; IF_ID_IR[6]                             ; Lost fanout                                 ;
+; ID_EX_IMM[5]                            ; Lost fanout                                 ;
+; IF_ID_IR[5]                             ; Lost fanout                                 ;
+; ID_EX_IMM[4]                            ; Lost fanout                                 ;
+; IF_ID_IR[4]                             ; Lost fanout                                 ;
+; ID_EX_IMM[3]                            ; Lost fanout                                 ;
+; IF_ID_IR[3]                             ; Lost fanout                                 ;
+; ID_EX_IMM[2]                            ; Lost fanout                                 ;
+; IF_ID_IR[2]                             ; Lost fanout                                 ;
+; ID_EX_IMM[1]                            ; Lost fanout                                 ;
+; IF_ID_IR[1]                             ; Lost fanout                                 ;
+; ID_EX_IMM[0]                            ; Lost fanout                                 ;
+; IF_ID_IR[0]                             ; Lost fanout                                 ;
+; EX_MEM_IR[26]                           ; Stuck at GND due to stuck port clock_enable ;
+; ID_EX_IR[26]                            ; Lost fanout                                 ;
+; EX_MEM_IR[27]                           ; Stuck at GND due to stuck port clock_enable ;
+; ID_EX_IR[27]                            ; Lost fanout                                 ;
+; EX_MEM_IR[28]                           ; Stuck at GND due to stuck port clock_enable ;
+; ID_EX_IR[28]                            ; Lost fanout                                 ;
+; EX_MEM_IR[29]                           ; Stuck at GND due to stuck port clock_enable ;
+; ID_EX_IR[29]                            ; Lost fanout                                 ;
+; EX_MEM_IR[30]                           ; Stuck at GND due to stuck port clock_enable ;
+; ID_EX_IR[30]                            ; Lost fanout                                 ;
+; EX_MEM_IR[31]                           ; Stuck at GND due to stuck port clock_enable ;
+; ID_EX_IR[31]                            ; Lost fanout                                 ;
+; ID_EX_B[0..31]                          ; Stuck at GND due to stuck port clock_enable ;
+; ID_EX_A[0..31]                          ; Stuck at GND due to stuck port clock_enable ;
+; MEM_WB_LMD[0]                           ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[0]                        ; Lost fanout                                 ;
+; MEM_WB_LMD[1]                           ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[1]                        ; Lost fanout                                 ;
+; MEM_WB_LMD[2]                           ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[2]                        ; Lost fanout                                 ;
+; MEM_WB_LMD[3]                           ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[3]                        ; Lost fanout                                 ;
+; MEM_WB_LMD[4]                           ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[4]                        ; Lost fanout                                 ;
+; MEM_WB_LMD[5]                           ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[5]                        ; Lost fanout                                 ;
+; MEM_WB_LMD[6]                           ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[6]                        ; Lost fanout                                 ;
+; MEM_WB_LMD[7]                           ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[7]                        ; Lost fanout                                 ;
+; MEM_WB_LMD[8]                           ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[8]                        ; Lost fanout                                 ;
+; MEM_WB_LMD[9]                           ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[9]                        ; Lost fanout                                 ;
+; MEM_WB_LMD[10]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[10]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[11]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[11]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[12]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[12]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[13]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[13]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[14]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[14]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[15]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[15]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[16]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[16]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[17]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[17]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[18]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[18]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[19]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[19]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[20]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[20]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[21]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[21]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[22]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[22]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[23]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[23]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[24]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[24]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[25]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[25]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[26]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[26]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[27]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[27]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[28]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[28]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[29]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[29]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[30]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[30]                       ; Lost fanout                                 ;
+; MEM_WB_LMD[31]                          ; Lost fanout                                 ;
+; MEM_WB_ALUOUT[31]                       ; Lost fanout                                 ;
+; IF_ID_IR[16..25]                        ; Lost fanout                                 ;
+; PC[1..31]                               ; Stuck at GND due to stuck port clock_enable ;
+; IF_ID_IR[26..31]                        ; Stuck at GND due to stuck port clock_enable ;
+; EX_MEM_B[0..31]                         ; Lost fanout                                 ;
+; EX_MEM_COND                             ; Lost fanout                                 ;
+; PC[0]                                   ; Stuck at GND due to stuck port clock_enable ;
+; MEM_WB_type~8                           ; Lost fanout                                 ;
+; MEM_WB_type~9                           ; Lost fanout                                 ;
+; MEM_WB_type~10                          ; Lost fanout                                 ;
+; EX_MEM_type~8                           ; Lost fanout                                 ;
+; EX_MEM_type~9                           ; Lost fanout                                 ;
+; EX_MEM_type~10                          ; Lost fanout                                 ;
+; ID_EX_type~8                            ; Lost fanout                                 ;
+; ID_EX_type~9                            ; Lost fanout                                 ;
+; ID_EX_type~10                           ; Lost fanout                                 ;
+; MEM_WB_type.RR_ALU                      ; Lost fanout                                 ;
+; MEM_WB_type.RM_ALU                      ; Lost fanout                                 ;
+; MEM_WB_type.LOAD                        ; Lost fanout                                 ;
+; MEM_WB_type.STORE                       ; Lost fanout                                 ;
+; MEM_WB_type.BRANCH                      ; Lost fanout                                 ;
+; MEM_WB_type.HALT                        ; Lost fanout                                 ;
+; EX_MEM_type.RR_ALU                      ; Lost fanout                                 ;
+; EX_MEM_type.RM_ALU                      ; Lost fanout                                 ;
+; EX_MEM_type.LOAD                        ; Lost fanout                                 ;
+; EX_MEM_type.STORE                       ; Lost fanout                                 ;
+; EX_MEM_type.BRANCH                      ; Lost fanout                                 ;
+; EX_MEM_type.HALT                        ; Lost fanout                                 ;
+; ID_EX_type.RR_ALU                       ; Lost fanout                                 ;
+; ID_EX_type.RM_ALU                       ; Lost fanout                                 ;
+; ID_EX_type.LOAD                         ; Lost fanout                                 ;
+; ID_EX_type.STORE                        ; Lost fanout                                 ;
+; ID_EX_type.BRANCH                       ; Lost fanout                                 ;
+; ID_EX_type.HALT                         ; Lost fanout                                 ;
+; Total Number of Removed Registers = 424 ;                                             ;
++-----------------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                   ;
++----------------+--------------------------------+-------------------------------------------------------------------------------------------------------------+
+; Register name  ; Reason for Removal             ; Registers Removed due to This Register                                                                      ;
++----------------+--------------------------------+-------------------------------------------------------------------------------------------------------------+
+; HALTED         ; Stuck at VCC                   ; EX_MEM_ALUOUT[0], EX_MEM_ALUOUT[1], EX_MEM_ALUOUT[2], EX_MEM_ALUOUT[3], EX_MEM_ALUOUT[4],                   ;
+;                ; due to stuck port data_in      ; EX_MEM_ALUOUT[5], EX_MEM_ALUOUT[6], EX_MEM_ALUOUT[7], EX_MEM_ALUOUT[8], EX_MEM_ALUOUT[9],                   ;
+;                ;                                ; EX_MEM_ALUOUT[10], EX_MEM_ALUOUT[11], EX_MEM_ALUOUT[12], EX_MEM_ALUOUT[13],                                 ;
+;                ;                                ; EX_MEM_ALUOUT[14], EX_MEM_ALUOUT[15], EX_MEM_ALUOUT[16], EX_MEM_ALUOUT[17],                                 ;
+;                ;                                ; EX_MEM_ALUOUT[18], EX_MEM_ALUOUT[19], EX_MEM_ALUOUT[20], EX_MEM_ALUOUT[21],                                 ;
+;                ;                                ; EX_MEM_ALUOUT[22], EX_MEM_ALUOUT[23], EX_MEM_ALUOUT[24], EX_MEM_ALUOUT[25],                                 ;
+;                ;                                ; EX_MEM_ALUOUT[26], EX_MEM_ALUOUT[27], EX_MEM_ALUOUT[28], EX_MEM_ALUOUT[29],                                 ;
+;                ;                                ; EX_MEM_ALUOUT[30], EX_MEM_ALUOUT[31], ID_EX_NPC[31], IF_ID_NPC[31], ID_EX_NPC[30],                          ;
+;                ;                                ; IF_ID_NPC[30], ID_EX_NPC[29], IF_ID_NPC[29], ID_EX_NPC[28], IF_ID_NPC[28], EX_MEM_IR[26],                   ;
+;                ;                                ; ID_EX_IR[26], EX_MEM_IR[27], ID_EX_IR[27], EX_MEM_IR[28], ID_EX_IR[28], EX_MEM_IR[29],                      ;
+;                ;                                ; ID_EX_IR[29], EX_MEM_IR[30], ID_EX_IR[30], EX_MEM_IR[31], ID_EX_IR[31], ID_EX_B[0],                         ;
+;                ;                                ; ID_EX_B[1], ID_EX_B[2], ID_EX_B[3], ID_EX_B[4], ID_EX_B[5], ID_EX_B[6], ID_EX_B[7], ID_EX_B[8],             ;
+;                ;                                ; ID_EX_B[9], ID_EX_B[10], ID_EX_B[11], ID_EX_B[12], ID_EX_B[13], ID_EX_B[14], ID_EX_B[15],                   ;
+;                ;                                ; ID_EX_B[16], ID_EX_B[17], ID_EX_B[18], ID_EX_B[19], ID_EX_B[20], ID_EX_B[21], ID_EX_B[22],                  ;
+;                ;                                ; ID_EX_B[23], ID_EX_B[24], ID_EX_B[25], ID_EX_B[26], ID_EX_B[27], ID_EX_B[28], ID_EX_B[29],                  ;
+;                ;                                ; ID_EX_B[30], ID_EX_B[31], ID_EX_A[7], ID_EX_A[8], ID_EX_A[9], ID_EX_A[10], ID_EX_A[11],                     ;
+;                ;                                ; ID_EX_A[12], ID_EX_A[13], ID_EX_A[14], ID_EX_A[15], ID_EX_A[16], ID_EX_A[17], ID_EX_A[18],                  ;
+;                ;                                ; ID_EX_A[19], ID_EX_A[20], ID_EX_A[21], ID_EX_A[22], ID_EX_A[23], ID_EX_A[24], ID_EX_A[25],                  ;
+;                ;                                ; ID_EX_A[26], ID_EX_A[27], ID_EX_A[28], ID_EX_A[29], ID_EX_A[30], PC[1], PC[2], PC[3], PC[4], PC[5],         ;
+;                ;                                ; PC[6], PC[7], PC[8], PC[9], PC[10], PC[11], PC[12], PC[13], PC[14], PC[15], PC[16], PC[17], PC[18], PC[19], ;
+;                ;                                ; PC[20], PC[21], PC[22], PC[23], PC[24], PC[25], PC[26], PC[27], PC[28], PC[29], PC[30], PC[31],             ;
+;                ;                                ; IF_ID_IR[26], IF_ID_IR[27], IF_ID_IR[28], IF_ID_IR[29], IF_ID_IR[30], IF_ID_IR[31],                         ;
+;                ;                                ; EX_MEM_B[7], EX_MEM_COND, PC[0]                                                                             ;
+; TAKEN_BRANCH0  ; Stuck at VCC                   ; ID_EX_A[0], ID_EX_A[1], ID_EX_A[2], ID_EX_A[3], ID_EX_A[4], ID_EX_A[5], ID_EX_A[6],                         ;
+;                ; due to stuck port data_in      ; MEM_WB_LMD[0], MEM_WB_ALUOUT[0], MEM_WB_LMD[1], MEM_WB_ALUOUT[1], MEM_WB_LMD[2],                            ;
+;                ;                                ; MEM_WB_ALUOUT[2], MEM_WB_LMD[3], MEM_WB_ALUOUT[3], MEM_WB_LMD[4], MEM_WB_ALUOUT[4],                         ;
+;                ;                                ; MEM_WB_LMD[5], MEM_WB_ALUOUT[5], MEM_WB_LMD[6], IF_ID_IR[25], IF_ID_IR[24], IF_ID_IR[23],                   ;
+;                ;                                ; IF_ID_IR[22], IF_ID_IR[21], EX_MEM_B[0], EX_MEM_B[1], EX_MEM_B[2], EX_MEM_B[3], EX_MEM_B[4],                ;
+;                ;                                ; EX_MEM_B[5], EX_MEM_B[6]                                                                                    ;
+; MEM_WB_IR[15]  ; Stuck at GND                   ; EX_MEM_IR[15], ID_EX_IR[15], IF_ID_IR[15], EX_MEM_B[8]                                                      ;
+;                ; due to stuck port clock_enable ;                                                                                                             ;
+; MEM_WB_IR[11]  ; Stuck at GND                   ; EX_MEM_IR[11], ID_EX_IR[11], IF_ID_IR[11]                                                                   ;
+;                ; due to stuck port clock_enable ;                                                                                                             ;
+; MEM_WB_IR[12]  ; Stuck at GND                   ; EX_MEM_IR[12], ID_EX_IR[12], IF_ID_IR[12]                                                                   ;
+;                ; due to stuck port clock_enable ;                                                                                                             ;
+; MEM_WB_IR[13]  ; Stuck at GND                   ; EX_MEM_IR[13], ID_EX_IR[13], IF_ID_IR[13]                                                                   ;
+;                ; due to stuck port clock_enable ;                                                                                                             ;
+; MEM_WB_IR[14]  ; Stuck at GND                   ; EX_MEM_IR[14], ID_EX_IR[14], IF_ID_IR[14]                                                                   ;
+;                ; due to stuck port clock_enable ;                                                                                                             ;
+; MEM_WB_IR[16]  ; Stuck at GND                   ; EX_MEM_IR[16], ID_EX_IR[16], IF_ID_IR[16]                                                                   ;
+;                ; due to stuck port clock_enable ;                                                                                                             ;
+; MEM_WB_IR[17]  ; Stuck at GND                   ; EX_MEM_IR[17], ID_EX_IR[17], IF_ID_IR[17]                                                                   ;
+;                ; due to stuck port clock_enable ;                                                                                                             ;
+; MEM_WB_IR[18]  ; Stuck at GND                   ; EX_MEM_IR[18], ID_EX_IR[18], IF_ID_IR[18]                                                                   ;
+;                ; due to stuck port clock_enable ;                                                                                                             ;
+; MEM_WB_IR[19]  ; Stuck at GND                   ; EX_MEM_IR[19], ID_EX_IR[19], IF_ID_IR[19]                                                                   ;
+;                ; due to stuck port clock_enable ;                                                                                                             ;
+; MEM_WB_IR[20]  ; Stuck at GND                   ; EX_MEM_IR[20], ID_EX_IR[20], IF_ID_IR[20]                                                                   ;
+;                ; due to stuck port clock_enable ;                                                                                                             ;
+; MEM_WB_type~8  ; Lost Fanouts                   ; MEM_WB_type.RM_ALU, MEM_WB_type.STORE, MEM_WB_type.HALT                                                     ;
+; EX_MEM_type~8  ; Lost Fanouts                   ; EX_MEM_type.RM_ALU, EX_MEM_type.STORE, EX_MEM_type.HALT                                                     ;
+; ID_EX_type~8   ; Lost Fanouts                   ; ID_EX_type.RM_ALU, ID_EX_type.STORE, ID_EX_type.HALT                                                        ;
+; ID_EX_NPC[24]  ; Lost Fanouts                   ; IF_ID_NPC[24]                                                                                               ;
+; ID_EX_NPC[23]  ; Lost Fanouts                   ; IF_ID_NPC[23]                                                                                               ;
+; ID_EX_NPC[22]  ; Lost Fanouts                   ; IF_ID_NPC[22]                                                                                               ;
+; ID_EX_NPC[21]  ; Lost Fanouts                   ; IF_ID_NPC[21]                                                                                               ;
+; ID_EX_NPC[20]  ; Lost Fanouts                   ; IF_ID_NPC[20]                                                                                               ;
+; ID_EX_NPC[19]  ; Lost Fanouts                   ; IF_ID_NPC[19]                                                                                               ;
+; ID_EX_NPC[18]  ; Lost Fanouts                   ; IF_ID_NPC[18]                                                                                               ;
+; ID_EX_NPC[17]  ; Lost Fanouts                   ; IF_ID_NPC[17]                                                                                               ;
+; ID_EX_NPC[16]  ; Lost Fanouts                   ; IF_ID_NPC[16]                                                                                               ;
+; ID_EX_NPC[15]  ; Lost Fanouts                   ; IF_ID_NPC[15]                                                                                               ;
+; ID_EX_NPC[14]  ; Lost Fanouts                   ; IF_ID_NPC[14]                                                                                               ;
+; ID_EX_NPC[13]  ; Lost Fanouts                   ; IF_ID_NPC[13]                                                                                               ;
+; ID_EX_NPC[12]  ; Lost Fanouts                   ; IF_ID_NPC[12]                                                                                               ;
+; ID_EX_NPC[11]  ; Lost Fanouts                   ; IF_ID_NPC[11]                                                                                               ;
+; ID_EX_NPC[10]  ; Lost Fanouts                   ; IF_ID_NPC[10]                                                                                               ;
+; ID_EX_NPC[9]   ; Lost Fanouts                   ; IF_ID_NPC[9]                                                                                                ;
+; ID_EX_NPC[8]   ; Lost Fanouts                   ; IF_ID_NPC[8]                                                                                                ;
+; ID_EX_NPC[7]   ; Lost Fanouts                   ; IF_ID_NPC[7]                                                                                                ;
+; ID_EX_NPC[6]   ; Lost Fanouts                   ; IF_ID_NPC[6]                                                                                                ;
+; ID_EX_NPC[5]   ; Lost Fanouts                   ; IF_ID_NPC[5]                                                                                                ;
+; ID_EX_NPC[4]   ; Lost Fanouts                   ; IF_ID_NPC[4]                                                                                                ;
+; ID_EX_NPC[3]   ; Lost Fanouts                   ; IF_ID_NPC[3]                                                                                                ;
+; ID_EX_NPC[2]   ; Lost Fanouts                   ; IF_ID_NPC[2]                                                                                                ;
+; ID_EX_NPC[1]   ; Lost Fanouts                   ; IF_ID_NPC[1]                                                                                                ;
+; ID_EX_NPC[0]   ; Lost Fanouts                   ; IF_ID_NPC[0]                                                                                                ;
+; ID_EX_IMM[10]  ; Lost Fanouts                   ; IF_ID_IR[10]                                                                                                ;
+; ID_EX_IMM[9]   ; Lost Fanouts                   ; IF_ID_IR[9]                                                                                                 ;
+; ID_EX_IMM[8]   ; Lost Fanouts                   ; IF_ID_IR[8]                                                                                                 ;
+; ID_EX_IMM[7]   ; Lost Fanouts                   ; IF_ID_IR[7]                                                                                                 ;
+; ID_EX_IMM[6]   ; Lost Fanouts                   ; IF_ID_IR[6]                                                                                                 ;
+; ID_EX_IMM[5]   ; Lost Fanouts                   ; IF_ID_IR[5]                                                                                                 ;
+; ID_EX_IMM[4]   ; Lost Fanouts                   ; IF_ID_IR[4]                                                                                                 ;
+; ID_EX_IMM[3]   ; Lost Fanouts                   ; IF_ID_IR[3]                                                                                                 ;
+; ID_EX_IMM[2]   ; Lost Fanouts                   ; IF_ID_IR[2]                                                                                                 ;
+; ID_EX_IMM[1]   ; Lost Fanouts                   ; IF_ID_IR[1]                                                                                                 ;
+; ID_EX_IMM[0]   ; Lost Fanouts                   ; IF_ID_IR[0]                                                                                                 ;
+; ID_EX_NPC[27]  ; Lost Fanouts                   ; IF_ID_NPC[27]                                                                                               ;
+; MEM_WB_type~9  ; Lost Fanouts                   ; MEM_WB_type.LOAD                                                                                            ;
+; MEM_WB_type~10 ; Lost Fanouts                   ; MEM_WB_type.BRANCH                                                                                          ;
+; ID_EX_NPC[26]  ; Lost Fanouts                   ; IF_ID_NPC[26]                                                                                               ;
+; EX_MEM_type~9  ; Lost Fanouts                   ; EX_MEM_type.LOAD                                                                                            ;
+; EX_MEM_type~10 ; Lost Fanouts                   ; EX_MEM_type.BRANCH                                                                                          ;
+; ID_EX_NPC[25]  ; Lost Fanouts                   ; IF_ID_NPC[25]                                                                                               ;
+; ID_EX_type~9   ; Lost Fanouts                   ; ID_EX_type.LOAD                                                                                             ;
+; ID_EX_type~10  ; Lost Fanouts                   ; ID_EX_type.BRANCH                                                                                           ;
++----------------+--------------------------------+-------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |MIPS32_Pipeline ;
++----------------+--------+-------------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                  ;
++----------------+--------+-------------------------------------------------------+
+; ADD            ; 000000 ; Unsigned Binary                                       ;
+; SUB            ; 000001 ; Unsigned Binary                                       ;
+; AND            ; 000010 ; Unsigned Binary                                       ;
+; OR             ; 000011 ; Unsigned Binary                                       ;
+; SLT            ; 000100 ; Unsigned Binary                                       ;
+; MUL            ; 000101 ; Unsigned Binary                                       ;
+; HLT            ; 111111 ; Unsigned Binary                                       ;
+; LW             ; 001000 ; Unsigned Binary                                       ;
+; SW             ; 001001 ; Unsigned Binary                                       ;
+; ADDI           ; 001010 ; Unsigned Binary                                       ;
+; SUBI           ; 001011 ; Unsigned Binary                                       ;
+; SLTI           ; 001100 ; Unsigned Binary                                       ;
+; BNEQZ          ; 001101 ; Unsigned Binary                                       ;
+; BEQZ           ; 001110 ; Unsigned Binary                                       ;
+; RR_ALU         ; 000    ; Unsigned Binary                                       ;
+; RM_ALU         ; 001    ; Unsigned Binary                                       ;
+; LOAD           ; 010    ; Unsigned Binary                                       ;
+; STORE          ; 011    ; Unsigned Binary                                       ;
+; BRANCH         ; 100    ; Unsigned Binary                                       ;
+; HALT           ; 101    ; Unsigned Binary                                       ;
++----------------+--------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 2                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sat Aug 22 03:26:51 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS32_Pipeline -c MIPS32_Pipeline
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file mips32_pipeline.v
+    Info (12023): Found entity 1: MIPS32_Pipeline File: C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file mips32_pipeline_test.v
+    Info (12023): Found entity 1: MIPS32_Pipeline_test File: C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline_test.v Line: 2
+Info (12127): Elaborating entity "MIPS32_Pipeline" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at MIPS32_Pipeline.v(16): object "TAKEN_BRANCH1" assigned a value but never read File: C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v Line: 16
+Info (10264): Verilog HDL Case Statement information at MIPS32_Pipeline.v(83): all case item expressions in this case statement are onehot File: C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v Line: 83
+Info (10264): Verilog HDL Case Statement information at MIPS32_Pipeline.v(120): all case item expressions in this case statement are onehot File: C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v Line: 120
+Info (10264): Verilog HDL Case Statement information at MIPS32_Pipeline.v(131): all case item expressions in this case statement are onehot File: C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v Line: 131
+Info (17049): 272 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk2" File: C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v Line: 4
+    Warning (15610): No output dependent on input pin "clk1" File: C:/Users/ASWIN/Desktop/Material_Covered/Verilog_Practice/MIPS_32/MIPS32_Pipeline.v Line: 4
+Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4743 megabytes
+    Info: Processing ended: Sat Aug 22 03:27:06 2020
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:36
+
+
